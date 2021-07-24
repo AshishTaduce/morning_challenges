@@ -1,4 +1,5 @@
 function calculator (str){
+    console.log(str)
     try {
         let result = (eval(str));
         if (Number.isInteger(result)) {
@@ -12,6 +13,12 @@ function calculator (str){
 }
 
 
-if(process.argv[2] != undefined) {
-    console.log(calculator(process.argv[2]))
+if(process.argv.length > 2) {
+    console.log(process.argv)
+    if(process.argv.length === 4) {
+        calculator(process.argv[3].split("=")[1])
+    }
+    else {
+        calculator(process.argv[2])
+    }
 }
