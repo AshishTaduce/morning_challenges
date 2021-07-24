@@ -1,5 +1,4 @@
 function calculator (str){
-    console.log(process.argv)
     try {
         let result = (eval(str));
         if (Number.isInteger(result)) {
@@ -11,4 +10,8 @@ function calculator (str){
         return "Invalid Expression"
     }
 }
-// console.log(calculator("9/7") );// 1.28571429
+
+
+if(process.argv[2] != undefined) {
+    console.log(calculator(process.argv[2]))
+}
