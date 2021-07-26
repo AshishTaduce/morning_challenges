@@ -1,7 +1,6 @@
 function calculator (str){
-    console.log(str)
     try {
-        let result = (eval(str));
+        let result = (evaluate(str));
         if (Number.isInteger(result)) {
             return result;
         }
@@ -12,7 +11,6 @@ function calculator (str){
     }
 }
 
-
 if(process.argv.length > 2) {
     console.log(process.argv)
     if(process.argv.length === 4) {
@@ -21,4 +19,11 @@ if(process.argv.length > 2) {
     else {
         calculator(process.argv[2])
     }
+}
+
+function evaluate(str){
+    return Function('' +
+        '"use strict";' +
+        'return (' + str + ');'
+    )();
 }
